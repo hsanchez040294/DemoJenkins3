@@ -14,6 +14,16 @@ provider "aws" {
   region = var.region
 }
 
+locals =  {
+      cidr_blocks = var.network_cid_vpc
+      subnet_count = var.vpc_subnet_count
+
+      common_tags =  {
+        Environment = "Produccion"
+        Team = "Networks"
+    }
+  }
+
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.19.0"
@@ -30,17 +40,7 @@ module "vpc" {
   enable_nat_gateway   = false
   create_database_subnet_group = false
 
-  locals =  {
-      cidr_blocks = var.network_cid_vpc
-      subnet_count = var.vpc_subnet_count
-
-      common_tags =  {
-        Environment = "Produccion"
-        Team = "Networks"
-    }
-  }
-
-    
+ tags = locals.common_tags    
   #tags = merge(local.common_tags, {
   #  Name = "${local.name_prefix}-${var.vpcnamebalancer}"
   #})
