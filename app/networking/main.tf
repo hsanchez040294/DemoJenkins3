@@ -14,7 +14,7 @@ provider "aws" {
   region = var.region
 }
 
-locals =  {
+locals   {
       cidr_blocks = var.network_cid_vpc
       subnet_count = var.vpc_subnet_count
 
