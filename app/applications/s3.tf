@@ -40,7 +40,7 @@ resource "aws_iam_instance_profile" "asg" {
 #### Instance roles
 
 resource "aws_iam_role" "asg" {
-  name = "${terraform.workspace}_asg_role"
+  name = "${terraform.workspace}_asg_role2"
   path = "/"
 
   assume_role_policy = <<EOF
