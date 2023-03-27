@@ -18,7 +18,7 @@ data "terraform_remote_state" "networking" {
   backend = "s3"
   config = {
     bucket = "tf-backend-20911"
-    key    = "env:/${terraform.workspace}/networking/terraform.tfstate"
+    key    = "env:/${terraform.workspace}/networking/terraaform.tfstate"
     region = "eu-west-1"
   }
 }
