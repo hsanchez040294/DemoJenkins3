@@ -40,8 +40,5 @@ module "vpc" {
   enable_nat_gateway   = false
   create_database_subnet_group = false
 
- tags = locals.common_tags    
-  #tags = merge(local.common_tags, {
-  #  Name = "${local.name_prefix}-${var.vpcnamebalancer}"
-  #})
+ tags = local.common_tags    
 }
