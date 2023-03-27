@@ -10,7 +10,7 @@ terraform {
 data "aws_availability_zones" "available" {}
 
 provider "aws" {
-  profile = "hsanchez"
+  //profile = "hsanchez"
   region = var.region
 }
 
